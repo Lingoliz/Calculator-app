@@ -1,0 +1,284 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'League Spartan', sans-serif;
+}
+
+body {
+    --main-bg :hsl(222, 26%, 31%);
+    --keypad-toggle-bg :hsl(223, 31%, 20%);
+    --screen-bg:hsl(224, 36%, 15%);
+
+    --header-text-color :hsl(0, 0%, 100%);
+
+    --num-text-color:hsl(221, 14%, 31%);
+    --num-bg:hsl(30, 25%, 89%);
+    --num-shadow:hsl(28, 16%, 65%);
+
+    --del-text-color:hsl(0, 0%, 100%) ;
+    --del-bg :hsl(225, 21%, 49%);
+    --del-shadow:hsl(224, 28%, 35%) ;
+
+    --toggle-text-color: hsl(0,0%,100%);
+    --toggle-bg:hsl(6, 63%, 50%);
+    --toggle-shadow:hsl(6, 70%, 34%);
+
+    --toggle-hover:hsl(5, 58%, 65%);
+    --del-hover:hsl(225, 13%, 76%);
+    --num-hover: hsl(0,0%,100%)
+
+
+}
+
+
+main {
+    min-height: 100vh;
+    background: var(--main-bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.calc {
+    width: 90%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.title {
+    color: var(--header-text-color);
+    font-size: 1.6rem;
+}
+.calc .calc-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+.calc .toggle p {
+    color: var(--header-text-color);
+    
+}
+.calc .toggle {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-end;
+}
+.switch {
+    width: 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+.prog {
+    width: 100%;
+    height: 18px;
+    background: var(--keypad-toggle-bg);
+    border-radius: 0.5rem;
+    -webkit-border-radius: 0.5rem;
+    -moz-border-radius: 0.5rem;
+    -ms-border-radius: 0.5rem;
+    -o-border-radius: 0.5rem;
+    position: relative;
+    cursor: pointer;
+    
+}
+ .toggle-title {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    color: var(--header-text-color);
+    font-size: 0.9rem;
+    padding:0 5px;
+}
+.prog::after {
+    content: '';
+    width: 12px;
+    height: 12px;
+    background: var(--toggle-bg);
+    position: absolute;
+    left: 4px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transition: 0.4s;
+    -webkit-transition: 0.4s;
+    -moz-transition: 0.4s;
+    -ms-transition: 0.4s;
+    -o-transition: 0.4s;
+}
+
+.screen {
+    width: 100%;
+    height: 100px;
+    background: var(--screen-bg);
+    border-radius: 0.8rem;
+    -webkit-border-radius: 0.8rem;
+    -moz-border-radius: 0.8rem;
+    -ms-border-radius: 0.8rem;
+    -o-border-radius: 0.8rem;
+    color: var(--header-text-color);
+    display: flex;
+    align-items: center;
+    padding: 0 2rem;
+    justify-content: flex-end;
+    font-size: 2.5rem;
+    overflow: hidden;
+    pointer-events:none ;
+}
+
+.keys {
+    background: var(--keypad-toggle-bg);
+    padding: 1rem;
+    border-radius: 0.8rem;
+    -webkit-border-radius: 0.8rem;
+    -moz-border-radius: 0.8rem;
+    -ms-border-radius: 0.8rem;
+    -o-border-radius: 0.8rem;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-auto-rows: 40px;
+    gap: 1rem;
+    
+}
+.keys  div {
+    display: flex;
+    align-items: center;
+    border-radius: 0.5rem;
+    justify-content: center;
+    -webkit-border-radius: 0.5rem;
+    -moz-border-radius: 0.5rem;
+    -ms-border-radius: 0.5rem;
+    -o-border-radius: 0.5rem;
+    cursor: pointer;
+    transition: 0.3s;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -ms-transition: 0.3s;
+    -o-transition: 0.3s;
+}
+
+.num ,
+.char{
+    background: var(--num-bg);
+    color: var(--num-text-color);
+    font-size: 1.4rem;
+    box-shadow: 0 2px 0 var(--num-shadow);
+}
+
+.prim {
+    background: var(--del-bg);
+    color: var(--del-text-color);
+    font-size: 1.1rem;
+    box-shadow: 0 2px 0 var(--del-shadow);
+    
+}
+
+.equal {
+    background: var(--toggle-bg);
+    color: var(--toggle-text-color);
+    font-size: 1.2rem;
+    box-shadow: 0 2px 0 var(--toggle-shadow);
+    grid-column: 3/5;
+}
+.reset{
+    grid-column: 1/3;
+}
+
+.num:hover,
+.char:hover {
+    background: var(--num-hover);
+}
+
+.delete:hover,
+.reset:hover {
+    background: var(--del-hover);
+}
+
+.equal:hover {
+    background: var(--toggle-hover);
+}
+
+
+.disable {
+    pointer-events: none;
+}
+
+.them-2::after{
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    -o-transform: translate(-50%,-50%);
+}
+
+.them-3::after{
+    top: 50%;
+    left: calc(100% - 4px);
+    transform: translate( -100% , -50%);
+    -webkit-transform: translate( -100% , -50%);
+    -moz-transform: translate( -100% , -50%);
+    -ms-transform: translate( -100% , -50%);
+    -o-transform: translate( -100% , -50%);
+}
+
+body.them-3 {
+    --main-bg :hsl(268, 75%, 9%);
+    --keypad-toggle-bg : hsl(268, 71%, 12%);
+    --screen-bg:hsl(268, 71%, 12%);
+
+    --header-text-color :hsl(52, 100%, 62%);
+
+    --num-text-color: hsl(52, 100%, 62%);
+    --num-bg:hsl(268, 47%, 21%);
+    --num-shadow:hsl(290, 70%, 36%);
+
+    --del-text-color:hsl(0, 0%, 100%) ;
+    --del-bg :hsl(281, 89%, 26%);
+    --del-shadow:hsl(285, 91%, 52%);
+
+    --toggle-text-color: hsl(198, 20%, 13%);
+    --toggle-bg:hsl(176, 100%, 44%);
+    --toggle-shadow:hsl(177, 92%, 70%);
+
+    --toggle-hover:hsl(171, 55%, 78%);
+    --del-hover:hsl(276, 46%, 52%);
+    --num-hover: hsl(276, 68%, 60%);
+}
+
+
+body.them-2 {
+    --main-bg :hsl(0, 0%, 90%);
+    --keypad-toggle-bg : hsl(0, 5%, 81%);
+    --screen-bg:hsl(0, 0%, 93%);
+
+    --header-text-color :hsl(60, 10%, 19%);
+
+    --num-text-color: hsl(60, 10%, 19%);
+    --num-bg:hsl(45, 7%, 89%);
+    --num-shadow:hsl(35, 11%, 61%);
+
+    --del-text-color:hsl(0, 0%, 100%) ;
+    --del-bg :hsl(185, 42%, 37%);
+    --del-shadow:hsl(185, 58%, 25%);
+
+    --toggle-text-color: hsl(0,0%,100%);
+    --toggle-bg:hsl(25, 98%, 40%);
+    --toggle-shadow:hsl(25, 99%, 27%);
+
+    --toggle-hover:hsl(25, 50%, 50%);
+    --del-hover:hsl(185, 31%, 66%);
+    --num-hover: hsl(0, 0%, 250%);
+}
